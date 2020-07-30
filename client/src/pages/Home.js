@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import Navbar from '../Navbar'
-import Jumbotron from '../Jumbotron'
-import API from '../../utils/api'
-import ResultCard from "../ResultCard";
-import SearchForm from "../SearchForm";
+import Navbar from '../components/Navbar/index';
+import Jumbotron from '../components/Jumbotron/index';
+import API from '../utils/API';
+import ResultCard from "../components/ResultCards/index";
+import Search from "../components/Search/index";
 
 class Home extends Component {
     state = {
@@ -58,7 +58,7 @@ class Home extends Component {
         const newBook = {
             title: targetBook[0].volumeInfo.title,
             authors: targetBook[0].volumeInfo.authors,
-            synopsis: targetBook[0].volumeInfo.synopsis,
+            description: targetBook[0].volumeInfo.description,
             image: targetBook[0].volumeInfo.imageLinks.thumbnail,
             link: targetBook[0].volumeInfo.infoLink
         }
@@ -79,12 +79,12 @@ class Home extends Component {
             API.saveBook({
                 title: targetBook[0].volumeInfo.title,
                 authors: targetBook[0].volumeInfo.authors,
-                synopsis: targetBook[0].volumeInfo.synopsis,
+                description: targetBook[0].volumeInfo.description,
                 image: targetBook[0].volumeInfo.imageLinks.thumbnail,
                 link: targetBook[0].volumeInfo.infoLink
             })
 
-            // console.log(newState.books)
+            console.log(newState.books)
         }
     }
 
@@ -94,7 +94,7 @@ class Home extends Component {
                 <Navbar />
                 <Jumbotron />
                 <div className='container'>
-                    <SearchForm
+                    <Search
                     handleFormSubmit = {this.handleFormSubmit}
                     handleInputChange = {this.handleInputChange} />
                     <div className='container-fluid' id='main-content'>
@@ -107,7 +107,7 @@ class Home extends Component {
                                     link={book.volumeInfo.infoLink}
                                     author={book.volumeInfo.authors}
                                     image={book.volumeInfo.imageLinks.thumbnail}
-                                    synopsis={book.volumeInfo.synopsis}
+                                    description={book.volumeInfo.description}
                                     saveBook={this.handleSaveBook}
                                 />
                             )

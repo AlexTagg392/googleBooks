@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import Navbar from '../Navbar'
-import Jumbotron from '../Jumbotron'
-import API from '../../utils/api'
-import ResultCard from "../ResultCard";
+import Navbar from '../components/Navbar/index';
+// import Jumbotron from '../components/Jumbotron/index';
+import API from '../utils/API';
+import ResultCard from "../components/ResultCards/index";
 
 class Saved extends Component {
     state = {
@@ -47,7 +47,7 @@ class Saved extends Component {
         return (
             <div>
                 <Navbar />
-                <Jumbotron />
+                {/* <Jumbotron /> */}
                 <div className='container'>
                     <h3>Your Saved Books</h3>
                     <div className='container-fluid' id='main-content'>
@@ -60,7 +60,7 @@ class Saved extends Component {
                                     link={book.link}
                                     author={book.authors}
                                     image={book.image}
-                                    synopsis={book.synopsis}
+                                    description={book.description}
                                     deleteBook={this.handleDeleteBook}
                                 />
                             )
