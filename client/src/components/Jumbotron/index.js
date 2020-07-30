@@ -1,14 +1,11 @@
-import React from "react";
+import React from 'react';
+import '../Jumbotron/style.css';
 
-function Jumbotron({ children }) {
-  return (
-    <div
-      style={{ height: 300, clear: "both", paddingTop: 120, textAlign: "center" }}
-      className="jumbotron"
-    >
-      {children}
+function Jumbotron() {
+    return (
+    <div className='jumbotron jumbotron-fluid bg-secondary text-white'>
     </div>
-  );
+    )
 }
 
 export default Jumbotron;
